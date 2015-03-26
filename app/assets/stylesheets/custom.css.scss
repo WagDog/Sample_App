@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";  // Required as per https://github.com/twbs/bootstrap-sass help to get glyphs working
 @import 'bootstrap';
 /* Have a look at http://bootstrapdocs.com/v2.0.4/docs/less.html for bootstrap variables */
 /* Universal CSS*/
@@ -45,10 +46,10 @@ p{
 
 /* Header */
 #logo{
-  float: left;
+  /* float: left; */
   margin-right: 10px;
   font-size: 1.7em;
-  color: #050699;
+  color: #9d9d9d;
   text-transform: uppercase;
   letter-spacing: -1 px;
   padding-top: 9px;
@@ -56,8 +57,16 @@ p{
   line-height: 1;
 }
 #logo:hover{
-  color: #050699;
+  color: #fff;
   text-decoration: none;
+}
+.navbar-nav ul, li, a{
+  list-style-type: none;
+  padding-right: 10px;
+}
+
+.navbar-inner{
+  padding-top: 15px;
 }
 
 /* Footer */
@@ -76,7 +85,4 @@ footer a:hover{
 footer small{
   float: left;
 }
-footer ul{
-  float: right;
-  list-style: none;
-}
+

@@ -73,4 +73,21 @@ describe "Static Pages" do
       expect(page).to have_title("Ruby on Rails Tutorial Sample App | Contact Us")
     end
   end
+
+  # Check the links
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    expect(page).to have_title('Ruby on Rails Tutorial Sample App | About Us')
+    click_link "Help"
+    expect(page).to have_title('Ruby on Rails Tutorial Sample App | Help')
+    click_link "Contact"
+    expect(page).to have_title('Ruby on Rails Tutorial Sample App | Contact Us')
+    click_link "Home"
+    expect(page).to have_title('Ruby on Rails Tutorial Sample App')
+    #click_link "Sign up now!"
+    #expect(page).to have_title('Ruby on Rails Tutorial Sample App | Contact Us')
+    #click_link "sample app"
+    #page.should # fill in
+  end
 end
