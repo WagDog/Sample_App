@@ -30,5 +30,11 @@ module SampleApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Speed up test by lowering BCrypt's cost function
+    require 'bcrypt'
+    silence_warnings do
+      BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
+    end
   end
 end
