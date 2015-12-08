@@ -1,6 +1,10 @@
 require 'rails_helper'
 require 'spec_helper'
 
+#########################################################################################################
+# To run the test, type C:\Sites\Sample_app>bundle exec rspec ./spec/features/static_pages_spec.rb      #
+#########################################################################################################
+
 # Described at location 6117. This tells the following test to use the Capybara object page as the
 # default object for 'it'
 # subject{page}
@@ -85,9 +89,5 @@ describe "Static Pages" do
     expect(page).to have_title('Ruby on Rails Tutorial Sample App | Contact Us')
     click_link "Home"
     expect(page).to have_title('Ruby on Rails Tutorial Sample App')
-    #click_link "Sign up now!"
-    #expect(page).to have_title('Ruby on Rails Tutorial Sample App | Contact Us')
-    #click_link "sample app"
-    #page.should # fill in
-  end
+   end
 end

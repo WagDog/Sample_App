@@ -10,7 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// Make sure call to add bootstrap is after jquery calls
+//
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.js
 //= require turbolinks
 //= require_tree .
