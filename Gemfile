@@ -33,6 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 group :production do
   # Include the gem for Postgre DB on Heroku
   gem 'pg'
+
+  # Include the
+  gem 'rails_12factor'
 end
 
 group :development, :test do
