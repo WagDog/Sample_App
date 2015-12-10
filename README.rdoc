@@ -38,6 +38,10 @@ Things you may want to cover:
 * Database initialization
   The Heroku toolbelt for windows was installed. Then from the Ruby console, logged onto Heroku account by just typing Heroku login
   Once logged in, run the rake task db:migrate. i.e heroku run rake db:migrate --app <myHerokuAppName>
+  Note - ReRunning the command above doesn't in this case delete any data. To start over, do as follows;-
+  rake db:reset db:migrate # This will rest the database and use the current schema
+  rake db:drop db:create db:migrate  # This will destroy, create and use the current schema
+  In both of the above commands, all data will be destroyed.
 
 
 * How to run the test suite
