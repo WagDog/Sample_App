@@ -10,16 +10,44 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
+  Hosted on Heroku after an acoount has been created.
+  Heroku was setup with the app connected to GitHub, with the source code
+  pushed up to GitHub after a local commits.
+
+  The following settings were added to the config->environments->production.rb file
+  NOTE - The lines below are from http://stackoverflow.com/questions/16271696/cant-get-css-working-on-heroku-using-rails-4-with-bootstrap-sass-gem
+  This refers to Bootstrap not working on Heroku
+  config.serve_static_files = true
+  config.assets.compile = true
+
+  The Gemfile was altered to include a group :production which includes the gem 'pg' for the Postgre database used by Heroku
+  Also the gem 'sqlite3' was moved to the group :development :test section, as Heroku cannot install the gem
+
+  The following line had to be added to the header partial so that the app is responsive on mobile devices
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  This is added to the application.html.erb file
+
+  The config->database.yml had to be amended to change the adapter to adapter: postgresql instead of using the default sqlite3 settings.
+  The file was also edited to include the database settings for host, database name, port, user and password.
+  To run the app, the database had to be initialised as per the instructions in the Database Initialisation section
+
 
 * Database creation
 
+
 * Database initialization
+  The Heroku toolbelt for windows was installed. Then from the Ruby console, logged onto Heroku account by just typing Heroku login
+  Once logged in, run the rake task db:migrate. i.e heroku run rake db:migrate --app <myHerokuAppName>
+
 
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+  The app is deployed using the Heroku interface using the Deploy icon once having clicked on the app name.
+  This gets the code from GitHub, so it is important that GitHub is set up correctly and all files have been
+  added to staging and then committed.
 
 * ...
 
