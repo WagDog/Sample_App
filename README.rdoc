@@ -33,6 +33,16 @@ Things you may want to cover:
 
 
 * Database creation
+  To create a starting point for model, controller and view, use the scaffold method as follows:-
+  Run the Rails Generator scaffold with capitialised model name (singular) and fields:field type e.g
+  $> rails generate scaffold User user_name:string user_age:integer .......
+  This will also generate a migration file to create the table in the database. The rake task db:migrate must be run as follows:-
+  $> rake db:migrate
+  To add or change fields at a later date, we need to create a migration file with the changes. We use the Rails Generate Migration
+  function with the model name (singular) and the field:field types as space seperated parameters e.g
+  $> rails generate migration User user_occupation:string
+  Again, the Rake task db:migrate will have to be run to affect the changes.
+
 
 
 * Database initialization
