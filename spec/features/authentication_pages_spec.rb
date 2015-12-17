@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'spec_helper'
-
+require 'capybara/rails'
+require "rack/test"
 
 # Rules for Authentication, which is where we can identify the user
 describe 'Authentication' do
@@ -75,3 +76,4 @@ def delete_path(somepath)
   page.driver.submit :delete, somepath
   Capybara.current_driver = current_driver
 end
+

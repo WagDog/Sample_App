@@ -33,18 +33,42 @@ Things you may want to cover:
 
 
 * Database creation
+  To create a starting point for model, controller and view, use the scaffold method as follows:-
+  Run the Rails Generator scaffold with capitialised model name (singular) and fields:field type e.g
+  $> rails generate scaffold User user_name:string user_age:integer .......
+  This will also generate a migration file to create the table in the database. The rake task db:migrate must be run as follows:-
+  $> rake db:migrate
+  To add or change fields at a later date, we need to create a migration file with the changes. We use the Rails Generate Migration
+  function with the model name (singular) and the field:field types as space seperated parameters e.g
+  $> rails generate migration User user_occupation:string
+  Again, the Rake task db:migrate will have to be run to affect the changes.
+  To drop a table from the database, run the following from the Rails console
+  $>ActiveRecord::Migrate.drop_table(:<SomeTableName>)
+  Then run db:migrate
+
 
 
 * Database initialization
-  The Heroku toolbelt for windows was installed. Then from the Ruby console, logged onto Heroku account by just typing Heroku login
-  Once logged in, run the rake task db:migrate. i.e heroku run rake db:migrate --app <myHerokuAppName>
+  The Heroku toolbelt for windows was installed. Then from the Ruby console, logged onto Heroku account by just typing:-
+  Heroku login
+  Once logged in, run the rake task db:migrate RAILS_ENV=production. i.e heroku run rake db:migrate --app <myHerokuAppName>
   Note - ReRunning the command above doesn't in this case delete any data. To start over, do as follows;-
   rake db:reset db:migrate # This will rest the database and use the current schema
   rake db:drop db:create db:migrate  # This will destroy, create and use the current schema
   In both of the above commands, all data will be destroyed.
+  Have a look at the schema.rb file for creating a new database using the Rake function db:schema:load. This
+  will create a new database without having to run all the migrations, which might be many.
 
+
+* Database Interrogation
+  The Heroku website allows the creation of DataClips under the database section of the website. This can be used to store frequently
+  used SQL commands.
 
 * How to run the test suite
+  RSpec is used for the test suite with test files in the spec->features folder. To run the tests, do as follows:-
+  First go to the Ruby command console. Then run just type rake. This will process all files that match pattern spec/**{,/*/**}/*_spec.rb
+  To run just one test, type bundle exec rspec ./features/some_test_spec.rb
+
 
 * Services (job queues, cache servers, search engines, etc.)
 
