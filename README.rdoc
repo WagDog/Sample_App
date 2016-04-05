@@ -8,6 +8,9 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
+  Had to remove the scaffolds.css.scss file that is created I think when a new application is created, or Rails Generate Scaffold is run.
+  To use Bootstrap in your app, you require the bootstrap-sass gem in the gem file, as well as the application.js requiring the bootstrap.js line
+  after the jquery lines. Also require a custom.css.scss file containing the bootstrap variables.
 
 * Configuration
   Hosted on Heroku after an acoount has been created.
